@@ -1,0 +1,76 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .topbar {
+        padding: 60px;
+        background: gray;
+        color: black;
+        font-size: 30px;
+      }
+
+      .bartext {
+        float: left;
+      }
+
+      .github-link {
+        float: right;
+      }
+
+      .form-container {
+        padding: 30px;
+      }
+
+      .output-container {
+        padding: 40px;
+      }
+
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: gray;
+        color: black;
+        text-align: left;
+      }
+
+    </style>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js"
+            crossorigin="anonymous"></script>
+{% endblock head %}
+
+{% block content %}
+
+<div class="wrapper">
+
+<div class="topbar">
+  <div class="bartext">Stock Ticker Information by Month</div>
+  <a class="github-link" href="https://github.com/RJSanders/tdi-milestone-project"><img src="{{ url_for('static', filename='GitHub-Mark-32px.png') }}"></a>
+</div>
+
+<div class="form-container">
+
+{{ wtf.quick_form(form) }}
+
+</div>
+
+<div class="output-container">
+
+{{ output|safe }}
+
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Created by Robert Sanders for The Data Incubator</p>
+</div>
+
+{% endblock %}
